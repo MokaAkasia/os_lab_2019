@@ -2,10 +2,10 @@
 count=0
 sum=0
 
-for params in $@
+while read line
 do
-count=$params
-sum=$(($sum+$count))
-done
-sum=$(($sum/$#))
+let 'count +=1'
+sum=$(($sum+$line))
+done < numbers.txt
+sum=$(($sum/$count))
 echo $sum
